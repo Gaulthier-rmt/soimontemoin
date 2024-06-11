@@ -1,0 +1,56 @@
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 20px;
+
+.card {
+  background-color: $white;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+
+ &:hover {
+  transform: translateY(-10px);
+  }
+
+img {
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 28px;
+  margin: 38px;
+      }
+
+.card-info {
+  padding: 15px;
+  text-align: center;
+
+h3 {
+   margin: 0;
+   font-size: 1.5em;
+   color: $primary-color;
+          }
+
+p {
+  margin: 10px 0;
+  color: $primary-color;
+          }
+
+button {
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+  background-color: darken($primary-color, 10%);
+  }
+          }
+      }
+  }
+}
