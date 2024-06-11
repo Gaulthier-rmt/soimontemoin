@@ -1,16 +1,26 @@
-<h2> Hello World </h2>
+<%# <div class="hero-banner-searchbox"> %>
+  <div class="search-bar">
+    <ul class="search-options">
+      <li>Lieu</li>
+        <input type="search" id= "search-input" placeholder="Lieu de cérémonie">
+      <li>Date</li>
+      <input type="search" id= "search-input" placeholder="Quand?">
+      <li>Genre</li>
+      <input type="search" id= "search-input" placeholder= "Témoin recherché?">
+      <button type="submit">Rechercher</button>
+  </ul>
+</div>
+
 
 
 <div class="container py-3">
 <section class="cards-section">
-<% @witnesses.each do |w| %>
   <div class="card">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
       <div class="card-info">
-        <h3>Name 1<%= w.name %></h3>
-          <p>Card description 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<%= w.description%></p>
-            <button><%= link_to "Voir plus", "/user/id" %></button>
-    <% end %>
+        <h3>Name 1</h3>
+          <p>Card description 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Voir plus</button>
       </div>
   </div>
 
@@ -31,31 +41,6 @@
           <button>Voir plus</button>
       </div>
   </div>
-
-     <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 2">
-      <div class="card-info">
-        <h3>Name 4</h3>
-        <p>Card description 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button>Voir plus</button>
-      </div>
-  </div>
-
-       <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 2">
-      <div class="card-info">
-        <h3>Name 4</h3>
-        <p>Card description 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button>Voir plus</button>
-      </div>
-  </div>
-
-       <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 2">
-      <div class="card-info">
-        <h3>Name 4</h3>
-        <p>Card description 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button>Voir plus</button>
       </div>
   </div>
  </section>
