@@ -5,4 +5,3 @@ class WitnessesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
-
