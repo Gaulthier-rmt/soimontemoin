@@ -1,0 +1,17 @@
+<!-- app/views/users/show.html.erb -->
+
+<div class="container">
+  <!-- Contenu principal -->
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <!-- Photo de profil utilisateur -->
+      <img src="https://media.licdn.com/dms/image/D4D03AQGT7aDRetO1rw/profile-displayphoto-shrink_400_400/0/1697108268364?e=1723680000&v=beta&t=bVe-yUhyR_bzTa4rMe4XHVTTRr3TsajQ86SDnyqv0L8" alt="Photo de profil" class="img-fluid rounded-circle" style="max-width: 150px;">
+    </div>
+    <div class="col-md-9">
+      <h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+      <p><strong>Email :</strong> <%= @user.email %></p>
+      <p><strong>Numéro de téléphone :</strong> <%= @user.phone_number %></p>
+<%= link_to "Modifier mon profil", edit_user_registration_path(@user), class: "btn btn-primary", style: "background-color: rgb(175, 200, 173); border: 1px solid rgb(175, 200, 173); border-radius: 28px;" %>
+    </div>
+  </div>
+</div>
