@@ -16,3 +16,5 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   validates :bio, presence: true
 end
+
+

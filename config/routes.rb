@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show, :update]
   root to: "pages#home"
 
   resources :witnesses, only: %i[show new create edit update destroy]
