@@ -11,37 +11,20 @@
   </ul>
 </div>
 
-
-
 <div class="container py-3">
-<section class="cards-section">
-  <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
-      <div class="card-info">
-        <h3>Name 1</h3>
-          <p>Card description 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button>Voir plus</button>
-      </div>
-  </div>
-
-  <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 2">
-      <div class="card-info">
-        <h3>Name 2</h3>
-        <p>Card description 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <section class="cards-section">
+    <% @witnesses.each do |witness| %>
+      <div class="card">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
+        <div class="card-info">
+          <h3><%= witness.name %></h3>
+          <p><%= witness.description %></p>
           <button>Voir plus</button>
+        </div>
       </div>
-  </div>
-
-    <div class="card">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 2">
-      <div class="card-info">
-        <h3>Name 3</h3>
-        <p>Card description 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button>Voir plus</button>
-      </div>
-  </div>
-      </div>
+    <% end %>
+  </section>
+</div>
   </div>
  </section>
 </div>
