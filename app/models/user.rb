@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :witnesses, dependent: :destroy
   has_many :bookings, through: :witnesses, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -13,6 +14,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, presence: true
   validates :password, length: { minimum: 6 }
+  validates :bio, presence: true
 end
 
 
