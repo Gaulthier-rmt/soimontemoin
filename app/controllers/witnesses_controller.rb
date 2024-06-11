@@ -1,5 +1,6 @@
 class WitnessesController < ApplicationController
   before_action :set_witness, only: [:show]
+  has_one_attached :photo
 
   def show
     @witness = Witness.find(params[:id])
