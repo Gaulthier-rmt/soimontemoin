@@ -4,10 +4,8 @@
   padding: 5px;
   border-radius: 28px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
   max-width: 950px;
   display: flex;
-  margin-top: 20px;
   margin: 0 auto;
 
   input, button {
@@ -38,5 +36,6 @@
     list-style-type: none;
     display: inline-flex;
     justify-content: center;
+    margin: 10px;
   }
 }

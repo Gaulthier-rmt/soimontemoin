@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :witnesses, only: %i[show new create edit update destroy] do
-    resources :bookings, only: %i[create]
+    resources :bookings, only: %i[create destroy update]
   end
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
