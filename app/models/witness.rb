@@ -6,4 +6,6 @@ class Witness < ApplicationRecord
   validates :name, presence: true
   validates :price_per_day, presence: true
   validates :address, presence: true
+  validates :gender, presence: true
+  validates :gender, inclusion: { in: %w[homme femme] }
 end
