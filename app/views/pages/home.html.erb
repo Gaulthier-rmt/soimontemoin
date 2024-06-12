@@ -18,8 +18,11 @@
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
         <div class="card-info">
           <h3><%= witness.name %></h3>
-          <p> Description <%# <p><%= witness.description %></p>
-          <button>Voir plus</button>
+          <% words = witness.description.to_s.split(' ') %>
+          <% truncated_description = words.first(20).join(' ') %>
+          <p> <%= truncated_description %>...</p>
+        <%= link_to "Voir plus", witness_path(witness.id), class: "green-btn" %>
+
         </div>
       </div>
     <% end %>
