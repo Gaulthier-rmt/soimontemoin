@@ -1,39 +1,46 @@
-<!-- app/views/witnesses/show.html.erb -->
-
 <div class="container">
-  <!-- Contenu principal -->
-  <div class="row mt-4">
-    <div class="col-md-3">
-      <!-- Photo du témoin -->
-      <% if @witness.photo.attached? %>
-        <%= cl_image_tag @user.avatar.key, class: 'avatar' %>
-      <% else %>
-        <img class="avatar" src="https://via.placeholder.com/150" alt="Photo de témoin">
-      <% end %>
+  <div class="row justify-content-center">
+    <div class="col-md-8"> <!-- Utiliser environ les 2/3 de la largeur sur les écrans moyens (md) -->
+      <div class="card">
+        <!-- Contenu principal -->
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <!-- Photo du témoin -->
+            <img class="avatar" src="https://via.placeholder.com/150" alt="Photo de témoin">
+          </div>
+          <div class="col-md-9">
+            <h3>Témoin : <%= @witness.name %></h3>
+            <p><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
+            <p><strong>Adresse :</strong> <%= @witness.address %></p>
+            <p><strong>Description :</strong> <%= @witness.description %></p>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="col-md-9">
-      <h1>Témoin : <%= @witness.name %></h1>
-      <p><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
-      <p><strong>Adresse :</strong> <%= @witness.address %></p>
-      <p><strong>Description :</strong> <%= @witness.address %></p>
-    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
     <%= simple_form_for(@booking, url: witness_bookings_path([@witness, @booking]), html: { class: 'form-horizontal', method: :post }) do |f| %>
   <%= f.hidden_field :witness_id, value: @witness.id %>
 
   <div class="form-group">
-    <%= f.label :wedding_date, "Date du mariage", class: "control-label" %>
-    <%= f.input :wedding_date, as: :date, input_html: { class: 'form-control' } %>
+
+    <%= f.input :wedding_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
   </div>
 
   <div class="form-group">
-    <%= f.label :wedding_address, "Adresse du mariage", class: "control-label" %>
+
     <%= f.input :wedding_address, input_html: { class: 'form-control' } %>
   </div>
 
   <div class="form-group">
-    <%= f.button :submit, "Réserver", class: "btn btn-primary" %>
-  </div>
+  <%= f.button :submit, "Réserver", class: "green-btn" %>
+</div>
 <% end %>
-
-  </div>
+</div>
 </div>
