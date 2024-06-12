@@ -1,0 +1,35 @@
+<h1>Tableau de bord</h1>
+
+<h2>Témoins de mariage que j'ai réservés</h2>
+<div class="cards-container">
+  <% @reserved_witnesses.each do |witness| %>
+    <div class="card">
+      <h3><%= witness.name %></h3>
+      <p><%= witness.details %></p>
+    </div>
+  <% end %>
+</div>
+
+<h2>Témoins de mariage qui me sont réservés</h2>
+<div class="cards-container">
+  <% @witnesses_reserved_for_me.each do |witness| %>
+    <div class="card">
+      <h3><%= witness.name %></h3>
+      <p><%= witness.details %></p>
+    </div>
+  <% end %>
+</div>
+
+
+<div>
+<footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Sois mon Témoin.</p>
+            <ul class="footer-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT OURS WITNESSES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>

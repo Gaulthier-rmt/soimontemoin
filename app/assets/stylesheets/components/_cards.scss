@@ -54,3 +54,33 @@ button {
       }
   }
 }
+
+$card-bg-color: #fff;
+$card-border-color: #ddd;
+$card-border-radius: 8px;
+$card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$card-padding: 16px;
+$card-width: 300px;
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .card {
+    background-color: $card-bg-color;
+    border: 1px solid $card-border-color;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    padding: $card-padding;
+    width: $card-width;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
