@@ -1,0 +1,14 @@
+.green-btn {
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+
+  &:hover {
+  background-color: darken($primary-color, 10%);
+  }
+          }

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   root to: "pages#home"
 
-  resources :witnesses, only: %i[show new create edit update destroy]
+  resources :witnesses, only: %i[show new create edit update destroy] do
+    resources :bookings, only: %i[create]
+  end
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
