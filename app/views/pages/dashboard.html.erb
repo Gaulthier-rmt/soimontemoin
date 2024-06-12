@@ -1,24 +1,41 @@
 <h1>Tableau de bord</h1>
 
-<h2>Témoins de mariage que j'ai réservés</h2>
-<div class="cards-container">
-  <% @reserved_witnesses.each do |witness| %>
-    <div class="card">
-      <h3><%= witness.name %></h3>
-      <p><%= witness.details %></p>
+<div class="profil-container" >
+  <div class="profil-cards">
+  <div class="card">
+      <h2><%= current_user.first_name %></h2>
+      <p>Bienvenue <%= current_user.first_name %></p>
+
     </div>
-  <% end %>
+  </div>
 </div>
 
-<h2>Témoins de mariage qui me sont réservés</h2>
-<div class="cards-container">
-  <% @witnesses_reserved_for_me.each do |witness| %>
-    <div class="card">
-      <h3><%= witness.name %></h3>
-      <p><%= witness.details %></p>
-    </div>
-  <% end %>
+
+
+<div class="container" >
+  <div class="cards-container">
+  <h2>Témoins de mariage que j'ai réservés</h2>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
+    <% @reserved_witnesses.each do |witness| %>
+      <div class="card">
+        <h3><%= witness.name %></h3>
+        <%# <p><%= witness.details %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="cards-container">
+  <h2>Témoins de mariage qui me sont réservés</h2>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
+    <% @witnesses_reserved_for_me.each do |witness| %>
+      <div class="card">
+        <h3><%= witness.name %></h3>
+        <%# <p><%= witness.details %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
+
 
 
 <div>
