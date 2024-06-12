@@ -1,4 +1,4 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
   def create
     raise
     @booking = Booking.new(booking_params)

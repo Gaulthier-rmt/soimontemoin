@@ -6,7 +6,7 @@
     <div class="col-md-3">
       <!-- Photo du témoin -->
       <% if @witness.photo.attached? %>
-        <%= image_tag @witness.photo, class: 'avatar' %>
+        <%= cl_image_tag @user.avatar.key, class: 'avatar' %>
       <% else %>
         <img class="avatar" src="https://via.placeholder.com/150" alt="Photo de témoin">
       <% end %>
