@@ -5,6 +5,7 @@ class WitnessesController < ApplicationController
     @witness = Witness.find(params[:id])
     @booking= Booking.new
   end
+  
 
   def new
     @witness = Witness.new

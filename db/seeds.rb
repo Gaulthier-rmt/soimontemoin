@@ -3,5 +3,4 @@ User.create!(email: "gltrmt@gmail.com", password: "123456", first_name: "Gaulthi
 
 Witness.destroy_all
 jp = Witness.create!(price_per_day: 500, address: "12 rue de la Paix, 75002 Paris", name: "Jean-Pierre", description: "Je m'appelle Jean-Pierre et je suis le témoin que vous recherchez pour votre mariage ! Avec mon humour décapant, mon sourire éblouissant, et une capacité innée à gérer les situations les plus rocambolesques, je suis prêt à rendre votre grand jour inoubliable. Que ce soit pour des discours mémorables, des danses endiablées ou des selfies légendaires, je suis votre homme ! Alors, si vous voulez un mariage rempli de rires et de moments inoubliables, faites appel à moi, Jean-Pierre, le témoin extraordinaire !", gender: "homme", user_id: User.first.id)
-
 jp.photo.attach(io: File.open('app/assets/images/pernault.jpg'), filename: 'jean-pierre.jpg', content_type: 'image/jpg')
