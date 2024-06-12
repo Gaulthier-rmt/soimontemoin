@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.witness = Witness.find(params[:booking][:witness_id])
     @booking.booking_status = "pending"
     if @booking.save
-      redirect_to witness_path(@booking.witness)
+      redirect_to dashboard_path
     else
       render :new
     end
