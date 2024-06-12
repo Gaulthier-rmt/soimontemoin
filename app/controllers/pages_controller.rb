@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @reserved_witnesses = Booking.all.where(user: current_user)
-    @witnesses_reserved_for_me = Witness.all.where(user: current_user)
+    @witnesses_reserved_for_me = Booking.all.where(witness: current_user)
   end
 
   def show

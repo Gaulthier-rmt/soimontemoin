@@ -37,40 +37,45 @@ p {
   margin: 10px 0;
   color: $primary-color;
           }
-
-
       }
   }
 }
 
-.profil-container {
-
-  display: flex;
-  background-color: $white;
-  border-radius: 28px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-.container {
+.d-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 
-  .card {
-    background-color: $card-bg-color;
-    border: 1px solid $card-border-color;
-    border-radius: $card-border-radius;
-    box-shadow: $card-box-shadow;
-    padding: $card-padding;
-    width: $card-width;
+  .card-profil {
+    background-color: $primary-color;
+    border: 1px solid $black;
+    border-radius: 28px;;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 60px;
+    transition: transform 0.3s;
+    margin: 70px;
+    justify-content: center;
   }
 
-  img {
+  .img-profil {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 38px;
+        }
+
+  .img-temoins {
     width: 180px;
     height: 140px;
     border-radius: 28px;
     margin: 38px;
-        }
+  }
 }
+
+  .card {
+    background-color: $white;
+    border-radius: 28px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
