@@ -34,7 +34,7 @@ Alors, prêts à vivre un mariage mémorable avec une témoin qui sait comment r
                 mimi.photo.attach(io: File.open('app/assets/images/mimi.jpg'), filename: 'mimi.jpg', content_type: 'image/jpg')
 
 
-               jean = Witness.create!(price_per_day: 14000, address: "3 boulevard des stars",
+                jean = Witness.create!(price_per_day: 14000, address: "3 boulevard des stars",
                 name: "Jean Pierre Pernaut",
                 description: "L'homme qui a passé sa vie à vous parler de la France profonde, je me propose pour faire de votre mariage un événement inoubliable.
 Imaginez-moi, avec mon ton inimitable et mon sourire chaleureux, prêt à vous accompagner lors de cette journée exceptionnelle. Je vous promets des discours aussi captivants que le journal de 13 heures, avec des anecdotes pittoresques qui feront rire et émouvoir tout le monde. Et si vous avez besoin d'une météo de dernière minute, je suis votre homme !
