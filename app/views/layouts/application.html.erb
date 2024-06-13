@@ -20,9 +20,9 @@
 <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-      <%= image_tag "logo.png", class: "logo" %>
-    </a>
+          <a class="navbar-brand img" href="/">
+            <%= image_tag "logo.png"%>
+          </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -50,7 +50,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Log In", new_user_session_path, class: "btn-nav-login" %>
+            <%= link_to "Log In", new_user_session_path, class: "btn-nav" %>
           <li class="nav-item">
             <%= link_to "Sign Up", new_user_registration_path, class: "btn-nav" %>
           </li>
