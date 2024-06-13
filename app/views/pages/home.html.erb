@@ -40,7 +40,8 @@
   <section class="cards-section">
     <% @witnesses.each do |witness| %>
       <div class="card">
-        <%= image_tag witness.photo %>
+          <%# <%= image_tag witness.photo %>
+
         <div class="card-info">
           <h3><%= witness.name %></h3>
           <% words = witness.description.to_s.split(' ') %>
