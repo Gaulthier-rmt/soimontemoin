@@ -40,8 +40,11 @@
   <section class="cards-section">
     <% @witnesses.each do |witness| %>
       <div class="card">
-          <%# <%= image_tag witness.photo %>
-
+            <% if witness.photo.attached? %>
+              <%= cl_image_tag witness.photo.key, class: "avatar-wit" %>
+            <% else %>
+                <p>mettre une photo par défaut</p>
+            <% end %>
         <div class="card-info">
           <h3><%= witness.name %></h3>
           <% words = witness.description.to_s.split(' ') %>
