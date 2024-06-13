@@ -1,6 +1,8 @@
 class WitnessesController < ApplicationController
   before_action :set_witness, only: [:show]
 
+  skip_before_action :authenticate_user!, only: %i[show]
+
   def show
     @witness = Witness.find(params[:id])
     @booking= Booking.new

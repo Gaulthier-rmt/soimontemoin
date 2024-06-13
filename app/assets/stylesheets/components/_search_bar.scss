@@ -4,39 +4,47 @@
   padding: 5px;
   border-radius: 28px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
   max-width: 950px;
   display: flex;
-  margin-top: 20px;
   margin: 0 auto;
+}
 
-  input, button {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      border-radius: 28px;
-      outline: none;
-  }
+.search-options {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 10px;
+  width: 100%;
+}
 
-  input {
-      flex: 1;
-      min-width: 120px;
-      max-width: 200px;
-  }
+.search-options li {
+  flex: 1;
+  text-align: center;
+}
 
-  button {
-      background-color: $primary-color;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
+.search-options input, .search-options select, .search-options button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 28px;
+  outline: none;
+  width: 100%;
+  max-width: 200px;
+}
 
-      &:hover {
-          background-color: darken($primary-color, 10%);
-      }
-  }
-  ul {
-    list-style-type: none;
-    display: inline-flex;
-    justify-content: center;
-  }
+.search-options input[type="text"] {
+  text-align: center;
+}
+
+.search-options button {
+  background-color: $primary-color; /* Assurez-vous que $primary-color est défini */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-options button:hover {
+  background-color: darken($primary-color, 10%);
 }
