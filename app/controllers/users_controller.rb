@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: %i[new create show]
+
   def new
     @user = User.new
     @user.build_address
