@@ -13,11 +13,10 @@ class WitnessesController < ApplicationController
   end
 
   def create
-    @witness = Witness.new
-    @witness.name = params[:witness][:name]
-    @witness.price_per_day = params[:witness][:price_per_day]
-    @witness.address = params[:witness][:address]
-    @witness.save
+    @witness = Witness.new(witness_params)
+    @witness.user = current_user
+    # raise
+    @witness.save!
     redirect_to witness_path(@witness)
   end
 
@@ -43,7 +42,7 @@ class WitnessesController < ApplicationController
     @witness = Witness.find(params[:id])
   end
 
-  # def witness_params
-  #   params.require(:witness).permit(:name, :price_per_day, :address)
-  # end
+  def witness_params
+    params.require(:witness).permit(:name, :price_per_day, :address, :gender, :photo)
+  end
 end
