@@ -1,17 +1,37 @@
 <%# <div class="hero-banner-searchbox"> %>
-  <div class="search-bar">
-    <ul class="search-options">
-      <li>Lieu</li>
-        <input type="search" id= "search-input" placeholder="Lieu de cérémonie">
-      <li>Date</li>
-      <input type="search" id= "search-input" placeholder="Quand?">
-      <li>Genre</li>
-      <input type="search" id= "search-input" placeholder= "Témoin recherché?">
+<div class="search-bar">
+  <ul class="search-options">
+    <li>
+      <input type="text" id="search-name" placeholder="Nom du témoin" onclick="this.placeholder=''" onblur="this.placeholder='Nom du témoin'">
+    </li>
+    <li>
+      <select id="search-gender">
+        <option value="">Genre</option>
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+      </select>
+    </li>
+    <li>
+      <select id="search-price">
+        <option value="">Price Range</option>
+        <option value="10000">Moins de 10,000</option>
+        <option value="50000">Moins de 50,000</option>
+        <option value="500000">Moins de 500,000</option>
+        <option value="1000000">Moins de 1,000,000</option>
+      </select>
+    </li>
+    <li>
       <button type="submit">Rechercher</button>
+    </li>
   </ul>
 </div>
 
+
 <div class="container py-3">
+  <div class="create-witness-button" style="text-align: center; margin-bottom: 20px;">
+    <%= link_to "Créer un témoin", new_witness_path, class: "green-btn" %>
+  </div>
+
   <section class="cards-section">
     <% @witnesses.each do |witness| %>
       <div class="card">
@@ -22,8 +42,7 @@
           <% words = witness.description.to_s.split(' ') %>
           <% truncated_description = words.first(20).join(' ') %>
           <p> <%= truncated_description %>...</p>
-        <%= link_to "Voir plus", witness_path(witness.id), class: "green-btn" %>
-
+          <%= link_to "Voir plus", witness_path(witness.id), class: "green-btn" %>
         </div>
       </div>
     <% end %>
