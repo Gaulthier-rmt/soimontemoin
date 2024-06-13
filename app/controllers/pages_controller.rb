@@ -4,8 +4,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @reserved_witnesses = Booking.all.where(user: current_user)
-    @witnesses_reserved_for_me = Booking.all.where(witness: current_user)
+    @reserved_witnesses = Booking.where(user: current_user)
+    @witnesses_reserved_for_me = Booking.joins(:witness).where(witness: { user_id: current_user.id })
   end
 
   def show

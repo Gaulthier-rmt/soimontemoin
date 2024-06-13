@@ -1,39 +1,5 @@
 <h1>Tableau de bord</h1>
 
-<% if false %>
-<div class="flex-container" >
-  <div class="left-container">
-      <div class="card-profil">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
-          <h2><%= current_user.first_name %></h2>
-          <p>Bienvenue <%= current_user.first_name %></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="right-container">
-    <h2>Témoins de mariage que j'ai réservés</h2>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
-      <% @reserved_witnesses.each do |witness| %>
-        <div class="card-profil">
-          <h3><%= witness.name %></h3>
-          <%# <p><%= witness.details %></p>
-        </div>
-      <% end %>
-
-
-    <h2>Témoins de mariage qui me sont réservés</h2>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1">
-      <% @witnesses_reserved_for_me.each do |witness| %>
-        <div class="card-profil">
-          <%# <p><%= witness.details %></p>
-        </div>
-      <% end %>
-  </div>
-</div>
-<% end %>
-
-
 <h2><%= current_user.first_name %></h2>
 <div class="d-flex container justify-content-center">
   <div class="card-profil" style="margin-right: 200px">
@@ -44,8 +10,8 @@
   <div class="d-flex flex-column">
     <div>
       <h2>Mes témoins réservés</h2>
-        <img class="img-temoins"src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
         <% @reserved_witnesses.each do |witness| %>
+        <img class="img-temoins"src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
           <div class="">
             <%# <p><%= witness.details %></p>
           </div>
@@ -54,8 +20,8 @@
 
     <div>
       <h2>Mes reservations de témoins </h2>
-        <img class="img-temoins" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
         <% @witnesses_reserved_for_me.each do |witness| %>
+        <img class="img-temoins" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
           <div class="">
             <%# <p><%= witness.details %></p>
           </div>
