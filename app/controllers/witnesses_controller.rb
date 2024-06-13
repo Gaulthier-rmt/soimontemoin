@@ -43,6 +43,6 @@ class WitnessesController < ApplicationController
   end
 
   def witness_params
-    params.require(:witness).permit(:name, :price_per_day, :address, :gender, :photo)
+    params.require(:witness).permit(:name, :price_per_day, :address, :gender, :photo, :description)
   end
 end
