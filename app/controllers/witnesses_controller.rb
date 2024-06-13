@@ -1,22 +1,22 @@
 class WitnessesController < ApplicationController
   before_action :set_witness, only: [:show]
 
+  skip_before_action :authenticate_user!, only: %i[show]
+
   def show
     @witness = Witness.find(params[:id])
     @booking= Booking.new
   end
-  
 
   def new
     @witness = Witness.new
   end
 
   def create
-    @witness = Witness.new
-    @witness.name = params[:witness][:name]
-    @witness.price_per_day = params[:witness][:price_per_day]
-    @witness.address = params[:witness][:address]
-    @witness.save
+    @witness = Witness.new(witness_params)
+    @witness.user = current_user
+    # raise
+    @witness.save!
     redirect_to witness_path(@witness)
   end
 
@@ -42,7 +42,7 @@ class WitnessesController < ApplicationController
     @witness = Witness.find(params[:id])
   end
 
-  # def witness_params
-  #   params.require(:witness).permit(:name, :price_per_day, :address)
-  # end
+  def witness_params
+    params.require(:witness).permit(:name, :price_per_day, :address, :gender, :photo, :description)
+  end
 end

@@ -1,44 +1,57 @@
-<h1>Tableau de bord</h1>
-
-<h2><%= current_user.first_name %></h2>
-<div class="d-flex container justify-content-center">
-  <div class="card-profil" style="margin-right: 200px">
-    <h2> Bienvenue <%= current_user.first_name %></h2>
-      <img class="img-profil" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
+<div class="dashboard-container d-flex justify-content-center align-items-center">
+  <div class="profile-card mr-3">
+    <h2 class="username"> Bienvenue <%= current_user.first_name %></h2>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
   </div>
 
-  <div class="d-flex flex-column">
-    <div>
-      <h2>Mes témoins réservés</h2>
-        <% @reserved_witnesses.each do |witness| %>
-        <img class="img-temoins"src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
-          <div class="">
-            <%# <p><%= witness.details %></p>
-          </div>
-        <% end %>
+
+  <div class="profile-list d-flex flex-column">
+    <div class= "card-reserved">
+    <div class="title-container">
+      <h4>Mes témoins réservés</h4>
+    </div>
+      <div class="temoin-card d-flex flex-column align-items-center">
+          <% @reserved_witnesses.each do |witness| %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
+              <h2 class="username"><%= "changer name" %></h2>
+              <p class="date"> changer date 888888888</p>
+              <div class="d-flex justify-content-between gap-2">
+                <button class="green-btn">Refuser</button>
+                <button class="green-btn">Accepter</button>
+              </div>
+          <% end %>
+      </div>
     </div>
 
-    <div>
-      <h2>Mes reservations de témoins </h2>
+    <div class= "card-reservation d-flex flex-column">
+      <div class="title-container">
+        <h4>Mes réservations de témoins</h4>
+      </div>
+        <div class="temoin-card d-flex flex-column align-items-center">
         <% @witnesses_reserved_for_me.each do |witness| %>
-        <img class="img-temoins" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1" style="width: 200px">
-          <div class="">
-            <%# <p><%= witness.details %></p>
-          </div>
-        <% end %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
+              <h2 class="username"><%= "changer name" %></h2>
+              <p class="date"> changer date 888888</p>
+              <div class="d-flex justify-content-between-gap-2">
+                  <button class="green-btn">Refuser</button>
+                  <button class="green-btn">Accepter</button>
+              </div>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
 
+
 <div>
-<footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Sois mon Témoin.</p>
-            <ul class="footer-links">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT OURS WITNESSES</a></li>
-                <li><a href="#">CONTACT US</a></li>
-            </ul>
-        </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Sois mon Témoin.</p>
+        <ul class="footer-links">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT OURS WITNESSES</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </div>
     </footer>
 </div>

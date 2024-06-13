@@ -1,46 +1,63 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8"> <!-- Utiliser environ les 2/3 de la largeur sur les écrans moyens (md) -->
-      <div class="card">
-        <!-- Contenu principal -->
-        <div class="row mt-4">
-          <div class="col-md-3">
-            <!-- Photo du témoin -->
-            <img class="avatar" src="https://via.placeholder.com/150" alt="Photo de témoin">
-          </div>
-          <div class="col-md-9">
-            <h3>Témoin : <%= @witness.name %></h3>
-            <p><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
-            <p><strong>Adresse :</strong> <%= @witness.address %></p>
-            <p><strong>Description :</strong> <%= @witness.description %></p>
+    <div class="col-md-8">
+      <!-- Card des informations du témoin -->
+      <div class="card mb-4 witness-card">
+        <div class="card-body">
+          <div class="row align-items-start">
+            <div class="col-md-4 text-center">
+              <% if @witness.photo.attached? %>
+                <%= cl_image_tag @witness.photo.key, class: "avatar-wit" %>
+              <% else %>
+                 <p>mettre une photo par défaut</p>
+              <% end %>
+              <p class="card-text mt-3 mb-0"><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
+            </div>
+            <div class="col-md-8">
+              <h3 class="card-title">Témoin : <%= @witness.name %></h3>
+              <p class="card-text mb-3"><strong>Adresse :</strong> <%= @witness.address %></p>
+              <div class="description" data-controller="toggle-description">
+                <p><strong>Description :</strong></p>
+                <div class="description-short mb-3" data-toggle-description-target="short">
+                  <%= truncate(@witness.description, length: 200, omission: '...') %>
+                </div>
+                <div class="description-full mb-3 d-none" data-toggle-description-target="full">
+                  <%= @witness.description %>
+                </div>
+                <% if @witness.description.length >= 200 %>
+                  <p><a href="#" class="toggle-description green-btn-voirplus" data-toggle-description-target="toggle" data-action="click->toggle-description#updateView">Voir plus</a></p>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Card du formulaire de réservation -->
+      <div class="card reservation-card">
+        <div class="container">
+  <div class="text-center mb-4 mt-4">
+    <h3>JE RÉSERVE !</h3>
+  </div>
+</div>
+        <div class="card-body">
+          <%= simple_form_for(@booking, url: witness_bookings_path([@witness, @booking]), html: { class: 'form-horizontal', method: :post }) do |f| %>
+            <%= f.hidden_field :witness_id, value: @witness.id %>
+
+            <div class="form-group mb-4">
+              <%= f.input :wedding_date, as: :string, input_html: { class: 'form-control', data: { controller: "datepicker" } } %>
+            </div>
+
+            <div class="form-group mb-4">
+              <%= f.input :wedding_address, input_html: { class: 'form-control' } %>
+            </div>
+
+            <div class="form-group text-center">
+              <%= f.button :submit, "Réserver", class: "green-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-    <%= simple_form_for(@booking, url: witness_bookings_path([@witness, @booking]), html: { class: 'form-horizontal', method: :post }) do |f| %>
-  <%= f.hidden_field :witness_id, value: @witness.id %>
-
-  <div class="form-group">
-
-    <%= f.input :wedding_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-  </div>
-
-  <div class="form-group">
-
-    <%= f.input :wedding_address, input_html: { class: 'form-control' } %>
-  </div>
-
-  <div class="form-group">
-  <%= f.button :submit, "Réserver", class: "green-btn" %>
-</div>
-<% end %>
-</div>
 </div>
