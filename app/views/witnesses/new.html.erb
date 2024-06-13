@@ -23,6 +23,11 @@
               <%= form.text_field :address, class: "form-control", placeholder: "Ex: 3 boulevard des 7 nains" %>
             </div>
 
+            <div class="form-group">
+              <%= form.label :gender, "Genre" %>
+              <%= form.select :gender, options_for_select([['Homme', 'Homme'], ['Femme', 'Femme']]), {}, class: "form-control" %>
+            </div>
+          
             <div class="form-group mb-4">
               <%= form.label :description, "Description" %>
               <%= form.text_area :description, class: "form-control", placeholder: "Ex: Je sais être à la hauteur..." %>
