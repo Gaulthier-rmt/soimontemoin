@@ -31,6 +31,31 @@
   }
 }
 
+.btn-nav {
+  background-color: $primary-color; /* Couleur de fond */
+  color: $secondary-color; /* Couleur du texte */
+  border: solid 1px $secondary-color;
+  padding: 10px 20px;
+  border-radius: 28px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $secondary-color; /* Couleur de fond au survol */
+    color: $primary-color; /* Couleur du texte au survol */
+    border: solid 1px $secondary-color; /* Bordure au survol */
+  }
+}
+
+.btn-nav-login {
+  background-color: $primary-color; /* Couleur de fond */
+  color: $secondary-color; /* Couleur du texte */
+  border: solid 1px $secondary-color;
+  padding: 10px 20px;
+  border-radius: 28px;
+  margin-right: 15px;
 
 .green-btn-voirplus {
   background-color: $primary-color;
@@ -43,6 +68,8 @@
   text-decoration: none;
 
   &:hover {
-  background-color: darken($primary-color, 10%);
+    background-color: $secondary-color; /* Couleur de fond au survol */
+    color: $primary-color; /* Couleur du texte au survol */
+    border: solid 1px $secondary-color; /* Bordure au survol */
   }
-          }
+}
