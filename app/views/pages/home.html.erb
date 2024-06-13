@@ -1,4 +1,13 @@
-<%# <div class="hero-banner-searchbox"> %>
+<div class="hero-banner-searchbox">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= asset_path('banner.jpg') %>');">
+  <div class="container">
+    <h1> Trouver <strong>le</strong> témoin parfait !</h1>
+    <p>Pour un jour aussi spécial que vous.</p>
+    <a class="green-btn" href="">Devenir Témoin</a>
+  </div>
+</div>
+</div>
+
   <div class="search-bar">
     <ul class="search-options">
       <li>Lieu</li>
@@ -16,7 +25,6 @@
     <% @witnesses.each do |witness| %>
       <div class="card">
         <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Image 1"> %>
-        <%= image_tag witness.photo %>
         <div class="card-info">
           <h3><%= witness.name %></h3>
           <% words = witness.description.to_s.split(' ') %>
