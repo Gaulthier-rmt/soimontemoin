@@ -1,38 +1,54 @@
-<%= form_with(model: @witness, local: true, html: { multipart: true }) do |form| %>
-  <div class="container py-3">
-    <h1>Créer un Témoin</h1>
-    <div class="form-group">
-      <%= form.label :name, "Nom" %>
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
+<div class="container py-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mb-4 reservation-card">
+        <div class="text-center mb-2 mt-4"> <!-- Ajustement de mb-4 à mb-2 pour réduire l'espace en bas du titre -->
+          <h3>JE CRÉE UN TÉMOIN !</h3>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :price_per_day, "Tarif par jour" %>
-      <%= form.number_field :price_per_day, class: "form-control" %>
-    </div>
+        <div class="card-body">
+          <%= form_with(model: @witness, local: true, html: { multipart: true }) do |form| %>
+            <div class="form-group mb-4"> <!-- Conservez mb-4 pour les autres form-group -->
+              <%= form.label :name, "Nom" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "Ex: Mimi Mathy" %>
+            </div>
 
-    <div class="form-group">
-      <%= form.label :address, "Adresse" %>
-      <%= form.text_field :address, class: "form-control" %>
-    </div>
+            <div class="form-group mb-4">
+              <%= form.label :price_per_day, "Tarif par jour" %>
+              <%= form.number_field :price_per_day, class: "form-control", placeholder: "Ex: 100.00" %>
+            </div>
 
-    <div class="form-group">
-      <%= form.label :description, "Description" %>
-      <%= form.text_area :description, class: "form-control" %>
-    </div>
+            <div class="form-group mb-4">
+              <%= form.label :address, "Adresse" %>
+              <%= form.text_field :address, class: "form-control", placeholder: "Ex: 3 boulevard des 7 nains" %>
+            </div>
 
-    <div class="form-group">
-      <%= form.label :gender, "Genre" %>
-      <%= form.select :gender, options_for_select([['Homme', 'Homme'], ['Femme', 'Femme']]), {}, class: "form-control" %>
-    </div>
+            <div class="form-group">
+              <%= form.label :gender, "Genre" %>
+              <%= form.select :gender, options_for_select([['Homme', 'Homme'], ['Femme', 'Femme']]), {}, class: "form-control" %>
+            </div>
+          
+            <div class="form-group mb-4">
+              <%= form.label :description, "Description" %>
+              <%= form.text_area :description, class: "form-control", placeholder: "Ex: Je sais être à la hauteur..." %>
+            </div>
 
-    <div class="form-group">
-      <%= form.label :photo, "Photo" %>
-      <%= form.file_field :photo, class: "form-control" %>
-    </div>
+            <div class="form-group mb-4">
+              <%= form.label :gender, "Genre" %>
+              <%= form.select :gender, options_for_select([['Homme', 'male'], ['Femme', 'female']]), {}, class: "form-control" %>
+            </div>
 
-    <div class="form-actions">
-      <%= form.submit "Créer", class: "green-btn" %>
+            <div class="form-group mb-4">
+              <%= form.label :photo, "Photo" %>
+              <%= form.file_field :photo, class: "form-control", placeholder: "Choisissez une photo" %>
+            </div>
+
+            <div class="form-actions text-center">
+              <%= form.submit "Créer un témoin", class: "green-btn mt-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
