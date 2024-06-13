@@ -1,89 +1,73 @@
-  .profile-card {
-    width: 400px;
-    height: 500px;
-    background-color:$primary-color;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.profile-card {
+  background-color:$primary-color;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  grid-column: span 2; /* Étend la carte sur deux colonnes */;
+  margin: 40px;
+}
+
+.profile-picture {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  justify-content: center;
+  padding: 10px;
+  img {
+    margin: 0;
   }
+}
 
-  .profile-picture {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin: 20px auto;
-    display: block;
-    justify-content: center;
-    padding: 10px;
-  }
+.username {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
-  .username {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-  }
+.card-reservation, .card-reserved {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin: 20px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 28px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.d-flex {
-
-  .profile-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-
-    .card-reservation, .card-reserved {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 16px;
-      flex-grow: 1;
-      margin: 20px;
+    .temoin-card {
+      width: 250px;
       background-color: #f7f7f7;
       padding: 20px;
       border-radius: 28px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-        .profile-card {
-          width: 250px;
-          margin: 20px;
-          background-color: #f7f7f7;
-          padding: 20px;
-          border: 1px solid #ddd;
-          border-radius: 10px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .temoin-card {
-          width: 250px;
-          margin: 20px;
-          background-color: #f7f7f7;
-          padding: 20px;
-          border-radius: 28px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .profile-picture {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          margin: 20px auto;
-          display: block;
-        }
-
-        .username {
-          font-size: 24px;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-
-        .date {
-          font-size: 18px;
-          color: #666;
-          margin-bottom: 20px;
-        }
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: block;
 
       }
- }
+    }
+
+    .username {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
 .title-container {
   grid-column: 1/-1;
 

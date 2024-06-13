@@ -1,59 +1,40 @@
-<div class="d-flex container">
-  <div class="profile-card">
+<div class="dashboard-container d-flex justify-content-center align-items-center">
+  <div class="profile-card mr-3">
     <h2 class="username"> Bienvenue <%= current_user.first_name %></h2>
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
   </div>
 
-  <div class="profile-list">
+  <div class="profile-list d-flex flex-column">
     <div class= "card-reserved">
     <div class="title-container">
       <h4>Mes témoins réservés</h4>
     </div>
-      <div class="temoin-card">
+      <div class="temoin-card d-flex flex-column align-items-center">
           <% @reserved_witnesses.each do |witness| %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
-                <h2 class="username"><%= "changer name" %></h2>
-                <p class="date"> changer date 888888888</p>
-                    <button class="green-btn">Refuser</button>
-                    <button class="green-btn">Accepter</button>
-          <% end %>
-      </div>
-
-
-       <div class="temoin-card">
-          <% @reserved_witnesses.each do |witness| %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
-                <h2 class="username"><%= "changer name" %></h2>
-                <p class="date"> changer date 888888888</p>
-                    <button class="green-btn">Refuser</button>
-                    <button class="green-btn">Accepter</button>
-          <% end %>
-      </div>
-
-
-       <div class="temoin-card">
-          <% @reserved_witnesses.each do |witness| %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
-                <h2 class="username"><%= "changer name" %></h2>
-                <p class="date"> changer date 888888888</p>
-                    <button class="green-btn">Refuser</button>
-                    <button class="green-btn">Accepter</button>
+              <h2 class="username"><%= "changer name" %></h2>
+              <p class="date"> changer date 888888888</p>
+              <div class="d-flex justify-content-between gap-2">
+                <button class="green-btn">Refuser</button>
+                <button class="green-btn">Accepter</button>
+              </div>
           <% end %>
       </div>
     </div>
 
-
-    <div class= "card-reservation">
+    <div class= "card-reservation d-flex flex-column">
       <div class="title-container">
         <h4>Mes réservations de témoins</h4>
       </div>
-      <div class="temoin-card">
+        <div class="temoin-card d-flex flex-column align-items-center">
         <% @witnesses_reserved_for_me.each do |witness| %>
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
               <h2 class="username"><%= "changer name" %></h2>
               <p class="date"> changer date 888888</p>
+              <div class="d-flex justify-content-between-gap-2">
                   <button class="green-btn">Refuser</button>
                   <button class="green-btn">Accepter</button>
+              </div>
           <% end %>
       </div>
     </div>
