@@ -6,4 +6,5 @@ class Booking < ApplicationRecord
   validates :wedding_address, presence: true
   validates :wedding_address, uniqueness: { scope: :wedding_date,
                                            message: "Une réservation existe déjà à cette date et cette adresse." }
+  validates :status, inclusion: { in: %w(attente acceptée déclinée passée) }
 end

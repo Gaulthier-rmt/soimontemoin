@@ -7,7 +7,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @reserved_witnesses = Booking.where(user: current_user)
-    @witnesses_reserved_for_me = Booking.joins(:witness).where(witness: { user_id: current_user.id })
+    @witnesses_reserved_from_me = Booking.joins(:witness).where(witness: { user_id: current_user.id })
+    # raise
   end
 
   def show
