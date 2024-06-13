@@ -6,8 +6,8 @@
         <div class="row mt-4">
           <div class="col-md-3">
             <!-- Photo du témoin -->
-            <%# <img class="avatar" src="https://via.placeholder.com/150" alt="Photo de témoin"> %>
-             <%= image_tag @witness.photo, class: "avatar" %>
+                <%= cl_image_tag(@witness.photo.key,
+                      class: "avatar", gravity: :face) %>
           </div>
           <div class="col-md-9">
             <h3>Témoin : <%= @witness.name %></h3>
