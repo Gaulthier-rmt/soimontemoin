@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.wedding_address = params[:booking][:wedding_address]
-    @booking.wedding_date = Date.new(params[:booking]["wedding_date(1i)"].to_i, params[:booking]["wedding_date(2i)"].to_i, params[:booking]["wedding_date(3i)"].to_i)
+    # @booking.wedding_date = Date.new(params[:booking]["wedding_date(1i)"].to_i, params[:booking]["wedding_date(2i)"].to_i, params[:booking]["wedding_date(3i)"].to_i)
+    @booking.wedding_date = params[:booking][:wedding_date]
     @booking.witness = Witness.find(params[:booking][:witness_id])
     @booking.booking_status = "pending"
     if @booking.save
