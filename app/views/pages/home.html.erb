@@ -19,22 +19,26 @@
             <h3>Recherche de témoins</h3>
           </div>
 
-          <%= simple_form_for :witness_search, url: witnesses_path, method: :get, html: { class: "search-bar" } do |f| %>
-            <ul class="search-options">
-              <li>
-                <%= f.input :name, as: :string, label: false, input_html: { id: "search-name", placeholder: "Nom du témoin", onclick: "this.placeholder=''", onblur: "this.placeholder='Nom du témoin'", class: "form-control" } %>
-              </li>
-              <li>
-                <%= f.input :gender, as: :select, label: false, collection: [["", "Selectionner un genre"], ["Homme", "homme"], ["Femme", "femme"]], input_html: { id: "search-gender", class: "form-control" } %>
-              </li>
-              <li>
-                <%= f.input :price_max, as: :string, label: false, input_html: { id: "search-price-max", placeholder: "Prix maximum", class: "form-control" } %>
-              </li>
-              <li>
-                <%= f.button :submit, "Rechercher", class: "green-btn btn-block" %>
-              </li>
-            </ul>
-          <% end %>
+<%= simple_form_for @witness, url: root_path, method: :get, html: { class: "search-bar justify-content-center" } do |f| %>
+  <div>
+    <div class="row gx-3">
+      <div class="col-md">
+        <%= f.input :name, as: :string, label: false, input_html: { id: "search-name", placeholder: "Nom du témoin", class: "form-control rounded-pill py-2" } %>
+      </div>
+      <div class="col-md">
+        <%= f.input :gender, as: :select, label: false, collection: [["Genre", "", { disabled: true, selected: true }], ["Homme", "homme"], ["Femme", "femme"]], include_blank: false, input_html: { id: "search-gender", class: "form-control custom-select rounded-pill py-2" } %>
+      </div>
+      <div class="col-md">
+        <%= f.input :price_per_day, as: :string, label: false, input_html: { id: "search-price-max", placeholder: "Prix maximum", class: "form-control rounded-pill py" } %>
+      </div>
+      <div class="col-md">
+        <%= f.button :submit, "Rechercher", class: "green-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
         </div>
       </div>
     </div>

@@ -13,6 +13,24 @@
   }
   }
 
+
+  .green-btn-form {
+  background-color: $primary-color;
+  color: $secondary-color;
+  border: none;
+  padding: 8px 20px;
+  margin-bottom: 12px;
+  margin-left: 60px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+
+  &:hover {
+  background-color: darken($primary-color, 10%);
+  }
+          }
+
 .green-btn-nav {
   background-color: $secondary-color; /* Couleur de fond */
   color: $primary-color; /* Couleur du texte */
@@ -47,6 +65,17 @@
   }
 }
 
+
+.btn-nav-login {
+  background-color: $primary-color; /* Couleur de fond */
+  color: $secondary-color; /* Couleur du texte */
+  border: solid 1px $secondary-color;
+  padding: 10px 20px;
+  border-radius: 28px;
+  margin-right: 15px;
+
+
+}
 .green-btn-voirplus {
   background-color: $primary-color;
   color: $secondary-color;
@@ -64,18 +93,3 @@
   }
 }
 
-.green-btn-booking {
-  background-color: $primary-color;
-  color: $white;
-  border: solid 1px $secondary-color;
-  padding: 10px 20px;
-  border-radius: 28px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  margin-top: 50px;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
-}
