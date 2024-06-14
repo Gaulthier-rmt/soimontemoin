@@ -33,10 +33,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name, :phone_number, :avatar, :bio)
   end
 
-  def address_params
-    params.require(:address).permit(:street, :city, :zipcode)
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
