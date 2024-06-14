@@ -25,7 +25,7 @@
                 <p class="card-text date"><%= booking.wedding_date.strftime('%B %d, %Y') %></p>
                 <p class="card-text date"><b><%= booking.booking_status.capitalize %></b></p>
                 <div class="d-flex justify-content-between gap-2">
-                  <% if booking.booking_status == "pending" %>
+                  <% if booking.booking_status == "attente" %>
                     <button class="btn btn-danger">Annuler la demande</button>
                   <% end %>
                 </div>
@@ -56,8 +56,8 @@
                   <p class="card-text date"><b><%= booking.booking_status.capitalize %></b></p>
                   <div class="d-flex justify-content-center gap-2">
                     <% if booking.booking_status == "attente" %>
-                      <button class="green-btn" data-action="click->dashboard#refuser"> <%= link_to "Refuser", witness_booking_path(booking.witness, booking), method: :patch, data: {booking_status: "déclinée"} %></button>
-                      <button class="green-btn" data-action="click->dashboard#accepter"><%= link_to "Accepter", witness_booking_path(booking.witness, booking), method: :patch, data: {booking_status: "acceptée"} %></button>
+                      <button class="green-btn"> <%= link_to "Refuser", accept_witness_booking_path(booking.witness, booking), data: { turbo_method: :patch} %></button>
+                      <button class="green-btn"><%= link_to "Accepter", decline_witness_booking_path(booking.witness, booking), data: { turbo_method: :patch} %></button>
                     <% end %>
                   </div>
                 </div>

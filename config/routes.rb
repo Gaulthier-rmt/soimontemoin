@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :witnesses, only: %i[show new create edit update destroy] do
-    resources :bookings, only: %i[create destroy update]
+    resources :bookings, only: %i[create destroy update] do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
   end
 
   resources :bookings, only: %i[show]
