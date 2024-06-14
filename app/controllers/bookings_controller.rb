@@ -27,6 +27,14 @@ class BookingsController < ApplicationController
     redirect_to witness_path(@booking.witness)
   end
 
+  def update
+    raise
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_status: "accepte")
+    redirect_to dashboard_path
+  end
+
+
   private
 
   def booking_params
