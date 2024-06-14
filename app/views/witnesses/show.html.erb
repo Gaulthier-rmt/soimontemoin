@@ -8,7 +8,6 @@
             <div class="col-md-4 text-center">
               <% if @witness.photo.attached? %>
                   <%= cl_image_tag @witness.photo.key, class: "avatar-wit" %>
-                 <p>mettre une photo par défaut</p>
               <% end %>
               <p class="card-text mt-3 mb-0"><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
             </div>
