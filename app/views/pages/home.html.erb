@@ -50,9 +50,10 @@
     <% @witnesses.each do |witness| %>
       <div class="card">
         <% if witness.photo.attached? %>
-          <%= cl_image_tag witness.photo.key, class: "avatar-wit" %>
+                    <%= cl_image_tag(witness.photo.key,
+                gravity: :face) %>
         <% else %>
-          <p>mettre une photo par défaut</p>
+          <p></p>
         <% end %>
         <div class="card-info">
           <h3><%= witness.name %></h3>
