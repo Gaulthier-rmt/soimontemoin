@@ -32,7 +32,24 @@
           </div>
         </div>
       </div>
-
+      <div class="card mb-4 user-photo-card">
+        <div class="card-body text-center">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+              <p><strong>Propriétaire</strong></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <%= cl_image_tag @user.avatar.key, class: "avatar-user" %>
+                <p>mettre une photo par défaut de l'utilisateur</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p><strong><%= @user.name %></strong></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
       <!-- Card du formulaire de réservation -->
       <div class="card reservation-card">
         <div class="container">
