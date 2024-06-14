@@ -26,16 +26,8 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
         <div class="d-flex align-items-center">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <div class="create-witness-button">
-                <%= link_to "Devenir témoin", new_witness_path, class: "green-btn-nav" %>
-              </div>
-            </li>
-          </ul>
         </div>
 </div>
 
@@ -75,7 +67,15 @@
   </div>
 
   <%= yield %>
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Sois mon Témoin.</p>
+    <ul class="footer-links">
+      <li> <%= link_to "HOME", root_path %></li>
+      <li> <%= link_to "MY DASHBOARD", dashboard_path %></li>
+      <li><%= link_to "DEVENIR TÉMOIN", new_witness_path %></li>
+    </ul>
+  </div>
+</footer>
 </body>
-
-
 </html>

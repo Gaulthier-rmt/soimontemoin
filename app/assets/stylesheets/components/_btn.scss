@@ -40,6 +40,8 @@
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
+  margin: 0 auto;
+
 
   &:hover {
     background-color: $primary-color; /* Couleur de fond au survol */

@@ -7,9 +7,7 @@
           <div class="row align-items-start">
             <div class="col-md-4 text-center">
               <% if @witness.photo.attached? %>
-                <%= cl_image_tag @witness.photo.key, class: "avatar-wit" %>
-              <% else %>
-                 <p>mettre une photo par défaut</p>
+                  <%= cl_image_tag @witness.photo.key, class: "avatar-wit" %>
               <% end %>
               <p class="card-text mt-3 mb-0"><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
             </div>

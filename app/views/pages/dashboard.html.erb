@@ -44,6 +44,7 @@
           <h4>Réservations de mes témoins</h4>
         </div>
 
+
         <% unless @witnesses_reserved_from_me.empty? %>
           <div class="d-flex flex-row">
             <% @witnesses_reserved_from_me.each do |booking| %>
@@ -68,19 +69,6 @@
         <% end %>
       </div>
     <% end %>
-
   </div>
 </div>
-
-<div>
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2024 Sois mon Témoin.</p>
-      <ul class="footer-links">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT OUR WITNESSES</a></li>
-        <li><a href="#">CONTACT US</a></li>
-      </ul>
-    </div>
-  </footer>
 </div>

@@ -13,7 +13,7 @@
 <div class="container py-3">
   <div class="row justify-content-center">
     <div class="col-md-8"> <!-- Utilisation d'une colonne plus large pour centrer la carte -->
-      <div class="search-bar mb-4 reservation-card">
+      <div class="search-bar mb-4">
         <div class="card-body">
           <div class="text-center mb-2">
             <h3>Recherche de témoins</h3>
@@ -38,7 +38,6 @@
   </div>
 <% end %>
 
-
         </div>
       </div>
     </div>
@@ -50,9 +49,10 @@
     <% @witnesses.each do |witness| %>
       <div class="card">
         <% if witness.photo.attached? %>
-          <%= cl_image_tag witness.photo.key, class: "avatar-wit" %>
+                    <%= cl_image_tag(witness.photo.key,
+                gravity: :face) %>
         <% else %>
-          <p>mettre une photo par défaut</p>
+          <p></p>
         <% end %>
         <div class="card-info">
           <h3><%= witness.name %></h3>
@@ -65,14 +65,3 @@
     <% end %>
   </section>
 </div>
-
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2024 Sois mon Témoin.</p>
-    <ul class="footer-links">
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">ABOUT OURS WITNESSES</a></li>
-      <li><a href="#">CONTACT US</a></li>
-    </ul>
-  </div>
-</footer>
