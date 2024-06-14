@@ -44,7 +44,7 @@
 
             </div>
             <div class="col-md-4 text-center">
-              <p><strong><%= @witness.user.first_name %> <%=  @witness.user.last_name %></strong></p>
+              <p><strong> <%= link_to @witness.user.first_name, user_path(@witness.user) %></strong></p>
             </div>
           </div>
         </div>
