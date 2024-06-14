@@ -20,7 +20,7 @@
 
         <div class="temoin-card d-flex flex-column align-items-center">
           <% @reserved_witnesses.each do |booking| %>
-            <div data-controller = "dasboard">
+            <div data-controller = "dashboard">
               <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
                   <h2 class="username"><%= booking.witness.name %></h2>
                   <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
@@ -50,15 +50,15 @@
 
           <div class="temoin-card d-flex flex-column align-items-center">
               <% @witnesses_reserved_from_me.each do |booking| %>
-                <div data-controller = "dasboard">
+                <div data-controller = "dashboard">
                   <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
                     <h2 class="username"><%= booking.witness.name %></h2>
                     <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
                     <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
                     <div class="d-flex justify-content-between gap-2">
                     <% if booking.booking_status == "attente" %>
-                      <button class="green-btn">Refuser</button>
-                      <button class="green-btn">Accepter</button>
+                      <button class="green-btn" data-action="click->dashboard#refuser" >Refuser</button>
+                      <button class="green-btn" data-action="click->dashboard#accepter">Accepter</button>
                       <% end %>
                     </div>
                 <% end %>
