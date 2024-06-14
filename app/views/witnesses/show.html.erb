@@ -40,11 +40,13 @@
               <p><strong>Propriétaire</strong></p>
             </div>
             <div class="col-md-4 text-center">
-                <%= cl_image_tag @user.avatar.key, class: "avatar-user" %>
-                <p>mettre une photo par défaut de l'utilisateur</p>
+                <%= cl_image_tag(@witness.user.avatar.key, transformation: [
+                                                                              {gravity: "face", height: 80, width: 80, crop: "fill" },
+                                                                              {radius: "max"}]) %>
+
             </div>
             <div class="col-md-4 text-center">
-              <p><strong><%= @user.name %></strong></p>
+              <p><strong><%= @witness.user.first_name %> <%=  @witness.user.last_name %></strong></p>
             </div>
           </div>
         </div>

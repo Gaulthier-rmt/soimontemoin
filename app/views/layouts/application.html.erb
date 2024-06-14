@@ -44,7 +44,11 @@
           <li class="nav-item dropdown">
 
             <% if current_user.avatar.attached? %>
-            <img class="avatar-nav" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path(current_user.avatar.key, gravity: :face) %>" alt="Photo de profil" />
+            <img class="avatar-nav" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            src="<%= cl_image_path(current_user.avatar.key, transformation: [
+                                                                              {gravity: "face", height: 200, width: 200, crop: "fill" },
+                                                                              {radius: "max"}]) %>"
+              alt="Photo de profil" />
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
             <% else %>
