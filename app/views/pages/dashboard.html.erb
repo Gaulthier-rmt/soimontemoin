@@ -13,58 +13,62 @@
 
     <div class= "card-reservation d-flex flex-column">
       <div class="title-container">
-        <h4>Mes réservations de témoins</h4>
+        <h4>Les témoins que j'ai réservé</h4>
       </div>
+
+        <% if @reserved_witnesses.any? %>
+
         <div class="temoin-card d-flex flex-column align-items-center">
+          <% @reserved_witnesses.each do |booking| %>
+            <div data-controller = "dasboard">
+              <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
+                  <h2 class="username"><%= booking.witness.name %></h2>
+                  <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
+                  <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
+                  <div class="d-flex justify-content-between-gap-2">
+                    <% if booking.booking_status == "pending" %>
+                      <button class="green-btn">Annuler la demande</button>
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
 
-        <% if @witnesses_reserved_from_me.any? %>
-
-          <% @witnesses_reserved_from_me.each do |booking| %>
-            <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
-                <h2 class="username"><%= booking.witness.name %></h2>
-                <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
-                <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
-                <div class="d-flex justify-content-between-gap-2">
-                  <% if booking.booking_status == "pending" %>
-                    <button class="green-btn">Annuler la demande</button>
-                  <% end %>
-                </div>
-            <% end %>
-
+      </div>
         <% else %>
           <p>Vous n'avez pas encore réservé de témoins.</p>
         <% end %>
-      </div>
     </div>
 
 
     <% unless Witness.where(user: current_user).empty? %>
         <div class= "card-reserved">
           <div class="title-container">
-            <h4>Mes témoins réservés</h4>
+            <h4>Réservations de mes témoins</h4>
           </div>
+
+            <% unless @witnesses_reserved_from_me.empty? %>
+
           <div class="temoin-card d-flex flex-column align-items-center">
-
-            <% if @reserved_witnesses.any? %>
-
-              <% @reserved_witnesses.each do |booking| %>
-                <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
-                  <h2 class="username"><%= booking.witness.name %></h2>
-                  <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
-                  <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
-                  <div class="d-flex justify-content-between gap-2">
-                  <% if booking.booking_status == "pending" %>
-                    <button class="green-btn">Refuser</button>
-                    <button class="green-btn">Accepter</button>
-                    <% end %>
-                  </div>
-              <% end %>
+              <% @witnesses_reserved_from_me.each do |booking| %>
+                <div data-controller = "dasboard">
+                  <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
+                    <h2 class="username"><%= booking.witness.name %></h2>
+                    <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
+                    <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
+                    <div class="d-flex justify-content-between gap-2">
+                    <% if booking.booking_status == "attente" %>
+                      <button class="green-btn">Refuser</button>
+                      <button class="green-btn">Accepter</button>
+                      <% end %>
+                    </div>
+                <% end %>
+                </div>
+          </div>
 
             <% else %>
               <p>Aucun de vos témoins n'a encore été réservé.</p>
             <% end %>
 
-          </div>
         </div>
     <% end %>
 
