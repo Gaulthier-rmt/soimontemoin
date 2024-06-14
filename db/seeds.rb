@@ -7,4 +7,4 @@ jp = Witness.create!(price_per_day: 500, address: "12 rue de la Paix, 75002 Pari
 jp.photo.attach(io: File.open('app/assets/images/pernault.jpg'), filename: 'jean-pierre.jpg', content_type: 'image/jpg')
 
 Booking.destroy_all
-Booking.create!(wedding_date: Date.new(2024, 6, 10), wedding_address: "12 rue de la Paix, 75002 Paris", booking_status: "pending", user_id: User.first.id, witness_id: Witness.first.id)
+Booking.create!(wedding_date: Date.new(2024, 6, 10), wedding_address: "12 rue de la Paix, 75002 Paris", booking_status: "attente", user_id: User.first.id, witness_id: Witness.first.id)
