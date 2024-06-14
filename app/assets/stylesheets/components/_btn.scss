@@ -11,7 +11,7 @@
   &:hover {
     background-color: darken($primary-color, 10%);
   }
-          }
+  }
 
 .green-btn-nav {
   background-color: $secondary-color; /* Couleur de fond */
@@ -19,7 +19,6 @@
   border: none;
   padding: 10px 20px;
   border-radius: 28px;
-  margin-right: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
