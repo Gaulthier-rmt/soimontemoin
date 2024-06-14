@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+
+  def show
+    @booking = Booking.find(params[:id])
+    @witness = @booking.witness
+  end
+
   def create
     # raise
     @booking = Booking.new(booking_params)
@@ -7,7 +13,7 @@ class BookingsController < ApplicationController
     # @booking.wedding_date = Date.new(params[:booking]["wedding_date(1i)"].to_i, params[:booking]["wedding_date(2i)"].to_i, params[:booking]["wedding_date(3i)"].to_i)
     @booking.wedding_date = params[:booking][:wedding_date]
     @booking.witness = Witness.find(params[:booking][:witness_id])
-    @booking.booking_status = "pending"
+    @booking.booking_status = "attente"
     if @booking.save
       redirect_to dashboard_path
     else

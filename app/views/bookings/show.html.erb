@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mb-4 card-booking">
+        <div class="card-body">
+          <div class="row align-items-start">
+            <h1 class="booking-title">Merci pour votre réservation !</h1>
+            <div class="col-md-4 text-center">
+              <img class="avatar-wit photo" src="<%= cl_image_path(@witness.photo.key, gravity: :face) %>" alt="Photo de profil">
+            </div>
+            <div class="col-md-8">
+              <h4 class="card-title"><strong>Mon témoin: </strong> <%= @witness.name %></h4>
+              <p class="card-text mb-3"><strong>Genre :</strong> <%= @witness.gender %></p>
+              <p class="card-text mb-3"><strong>Adresse :</strong> <%= @witness.address %></p>
+              <div class="description">
+              <p class="card-text mb-3"><strong>Prix :</strong> <%= @witness.price_per_day %> €</p>
+               <div class="wedding-date mb-3">
+                <label for="-date"><strong>Date de réservation :</strong></label>
+                <input type="text" id="wedding-date" class="flatpickr" value="<%= @booking.wedding_date.strftime('%B %d, %Y') %>" readonly>
+              </div>
+              <%= link_to "Voir toutes mes réservations", dashboard_path, class: "green-btn-booking mt-3" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

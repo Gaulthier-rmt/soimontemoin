@@ -9,3 +9,4 @@ class Witness < ApplicationRecord
   validates :gender, presence: true
   validates :gender, inclusion: { in: %w[Homme Femme] }
 end
+ 

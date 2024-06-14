@@ -1,19 +1,28 @@
-<!-- app/views/users/show.html.erb -->
-
 <div class="container">
-  <!-- Contenu principal -->
-  <div class="row mt-4">
-    <div class="col-md-3">
-      <!-- Photo de profil utilisateur -->
-      <img  class= avatar src="https://media.licdn.com/dms/image/D4D03AQGT7aDRetO1rw/profile-displayphoto-shrink_400_400/0/1697108268364?e=1723680000&v=beta&t=bVe-yUhyR_bzTa4rMe4XHVTTRr3TsajQ86SDnyqv0L8" alt="Photo de profil">
-    </div>
-    <div class="col-md-9">
-      <h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
-      <p><strong>Email :</strong> <%= @user.email %></p>
-      <p><strong>Numéro de téléphone :</strong> <%= @user.phone_number %></p>
-<p><strong>Biographie:</strong> <%= @user.bio %></p>
-<%= link_to "Modifier mon profil", edit_user_registration_path(@user), class: "green-btn" %>
-
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Card des informations de l'utilisateur -->
+      <div class="card mb-4 witness-card">
+        <div class="card-body">
+          <div class="row align-items-start">
+            <div class="col-md-4 text-center">
+              <img class="avatar-wit" src="https://media.licdn.com/dms/image/D4D03AQGT7aDRetO1rw/profile-displayphoto-shrink_400_400/0/1697108268364?e=1723680000&v=beta&t=bVe-yUhyR_bzTa4rMe4XHVTTRr3TsajQ86SDnyqv0L8" alt="Photo de profil">
+            </div>
+            <div class="col-md-8">
+              <h3 class="card-title">Profil de <%= @user.first_name %> <%= @user.last_name %></h3>
+              <p class="card-text mb-3"><strong>Email :</strong> <%= @user.email %></p>
+              <p class="card-text mb-3"><strong>Numéro de téléphone :</strong> <%= @user.phone_number %></p>
+              <div class="description">
+                <p><strong>Biographie :</strong></p>
+                <div class="description-full mb-3">
+                  <%= @user.bio %>
+                </div>
+              </div>
+              <%= link_to "Modifier mon profil", edit_user_registration_path(@user), class: "green-btn mt-3" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

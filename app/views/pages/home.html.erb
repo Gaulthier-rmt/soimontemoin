@@ -1,47 +1,56 @@
 <div class="hero-banner-searchbox">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= asset_path('banner.jpg') %>');">
     <div class="container">
-      <h1> Trouver <strong>le</strong> témoin parfait !</h1>
+      <h1> Trouvez le témoin parfait !</h1>
       <p>Pour un jour aussi spécial que vous.</p>
-        <div class="create-witness-button" style="text-align: center; margin-bottom: 20px;">
-          <%= link_to "Devenir témoin", new_witness_path, class: "green-btn" %>
-         </div>
+      <div class="create-witness-button" style="text-align: center; margin-bottom: 20px;">
+        <%= link_to "Devenir témoin", new_witness_path, class: "btn-banner" %>
       </div>
+    </div>
   </div>
 </div>
-<div class="search-bar">
-  <ul class="search-options">
-    <li>
-      <input type="text" id="search-name" placeholder="Nom du témoin" onclick="this.placeholder=''" onblur="this.placeholder='Nom du témoin'">
-    </li>
-    <li>
-      <select id="search-gender">
-        <option value="">Genre</option>
-        <option value="homme">Homme</option>
-        <option value="femme">Femme</option>
-      </select>
-    </li>
-    <li>
-      <select id="search-price">
-        <option value="">Price Range</option>
-        <option value="10000">Moins de 10,000</option>
-        <option value="50000">Moins de 50,000</option>
-        <option value="500000">Moins de 500,000</option>
-        <option value="1000000">Moins de 1,000,000</option>
-      </select>
-    </li>
-    <li>
-      <button type="submit">Rechercher</button>
-    </li>
-  </ul>
+
+<div class="container py-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8"> <!-- Utilisation d'une colonne plus large pour centrer la carte -->
+      <div class="card mb-4 reservation-card">
+        <div class="card-body">
+          <div class="text-center mb-2">
+            <h3>Recherche de témoins</h3>
+          </div>
+
+          <%= simple_form_for :witness_search, url: witnesses_path, method: :get, html: { class: "search-bar" } do |f| %>
+            <ul class="search-options">
+              <li>
+                <%= f.input :name, as: :string, label: false, input_html: { id: "search-name", placeholder: "Nom du témoin", onclick: "this.placeholder=''", onblur: "this.placeholder='Nom du témoin'", class: "form-control" } %>
+              </li>
+              <li>
+                <%= f.input :gender, as: :select, label: false, collection: [["", "Selectionner un genre"], ["Homme", "homme"], ["Femme", "femme"]], input_html: { id: "search-gender", class: "form-control" } %>
+              </li>
+              <li>
+                <%= f.input :price_max, as: :string, label: false, input_html: { id: "search-price-max", placeholder: "Prix maximum", class: "form-control" } %>
+              </li>
+              <li>
+                <%= f.button :submit, "Rechercher", class: "green-btn btn-block" %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container py-3">
   <section class="cards-section">
     <% @witnesses.each do |witness| %>
       <div class="card">
-          <%= cl_image_tag(witness.photo.key,
+        <% if witness.photo.attached? %>
+                    <%= cl_image_tag(witness.photo.key,
                 gravity: :face) %>
+        <% else %>
+          <p></p>
+        <% end %>
         <div class="card-info">
           <h3><%= witness.name %></h3>
           <% words = witness.description.to_s.split(' ') %>
@@ -54,16 +63,13 @@
   </section>
 </div>
 
-
-<div>
 <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Sois mon Témoin.</p>
-            <ul class="footer-links">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT OURS WITNESSES</a></li>
-                <li><a href="#">CONTACT US</a></li>
-            </ul>
-        </div>
-    </footer>
-</div>
+  <div class="footer-content">
+    <p>&copy; 2024 Sois mon Témoin.</p>
+    <ul class="footer-links">
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">ABOUT OURS WITNESSES</a></li>
+      <li><a href="#">CONTACT US</a></li>
+    </ul>
+  </div>
+</footer>

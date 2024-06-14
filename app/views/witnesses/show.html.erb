@@ -6,28 +6,57 @@
         <div class="card-body">
           <div class="row align-items-start">
             <div class="col-md-4 text-center">
+<<<<<<< HEAD
                               <%= cl_image_tag(@witness.photo.key,
                       class: "avatar", gravity: :face) %>
+=======
+              <% if @witness.photo.attached? %>
+                <%= cl_image_tag @witness.photo.key, class: "avatar-wit" %>
+              <% else %>
+                 <p>mettre une photo par défaut</p>
+              <% end %>
+>>>>>>> master
               <p class="card-text mt-3 mb-0"><strong>Prix par jour :</strong> <%= number_to_currency(@witness.price_per_day) %></p>
             </div>
             <div class="col-md-8">
               <h3 class="card-title">Témoin : <%= @witness.name %></h3>
               <p class="card-text mb-3"><strong>Adresse :</strong> <%= @witness.address %></p>
-              <div class="description">
+              <div class="description" data-controller="toggle-description">
                 <p><strong>Description :</strong></p>
-                <div class="description-short mb-3">
+                <div class="description-short mb-3" data-toggle-description-target="short">
                   <%= truncate(@witness.description, length: 200, omission: '...') %>
                 </div>
-                <div class="description-full mb-3" style="display: none;">
+                <div class="description-full mb-3 d-none" data-toggle-description-target="full">
                   <%= @witness.description %>
                 </div>
-                <p><a href="#" class="toggle-description green-btn-voirplus">Voir plus</a></p>
+                <% if @witness.description.length >= 200 %>
+                  <p><a href="#" class="toggle-description green-btn-voirplus" data-toggle-description-target="toggle" data-action="click->toggle-description#updateView">Voir plus</a></p>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="card mb-4 user-photo-card">
+        <div class="card-body text-center">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+              <p><strong>Propriétaire</strong></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <%= cl_image_tag(@witness.user.avatar.key, transformation: [
+                                                                              {gravity: "face", height: 80, width: 80, crop: "fill" },
+                                                                              {radius: "max"}]) %>
 
+            </div>
+            <div class="col-md-4 text-center">
+              <p><strong><%= @witness.user.first_name %> <%=  @witness.user.last_name %></strong></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
       <!-- Card du formulaire de réservation -->
       <div class="card reservation-card">
         <div class="container">
