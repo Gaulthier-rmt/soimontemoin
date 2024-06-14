@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @witness = @booking.witness
   end
 
   def create

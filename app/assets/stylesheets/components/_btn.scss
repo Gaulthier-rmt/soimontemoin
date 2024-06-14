@@ -63,3 +63,19 @@
     border: solid 1px $secondary-color; /* Bordure au survol */
   }
 }
+
+.green-btn-booking {
+  background-color: $primary-color;
+  color: $white;
+  border: solid 1px $secondary-color;
+  padding: 10px 20px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  margin-top: 50px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
