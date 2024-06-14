@@ -3,76 +3,72 @@
     <h2 class="username"> Bienvenue <%= current_user.first_name %></h2>
     <% if current_user.avatar.attached? %>
       <%= cl_image_tag current_user.avatar.key, class: "profile-picture" %>
-     <% else %>
-       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
-      <% end %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Photo de l'utilisateur" class="profile-picture">
+    <% end %>
   </div>
-
 
   <div class="profile-list d-flex flex-column">
 
-    <div class= "card-reservation d-flex flex-column">
+    <div class="card-reservation">
       <div class="title-container">
         <h4>Les témoins que j'ai réservé</h4>
       </div>
 
-        <% if @reserved_witnesses.any? %>
-
-        <div class="temoin-card d-flex flex-column align-items-center">
+      <% if @reserved_witnesses.any? %>
+        <div class="d-flex flex-row">
           <% @reserved_witnesses.each do |booking| %>
-            <div data-controller = "dashboard">
-              <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
-                  <h2 class="username"><%= booking.witness.name %></h2>
-                  <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
-                  <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
-                  <div class="d-flex justify-content-between-gap-2">
-                    <% if booking.booking_status == "pending" %>
-                      <button class="green-btn">Annuler la demande</button>
-                    <% end %>
-                  </div>
-              <% end %>
+            <div class="temoin-card card m-2" data-controller="dashboard">
+              <%= cl_image_tag booking.witness.photo.key, class: "card-img-top profile-picture" %>
+              <div class="card-body">
+                <h2 class="card-title username"><%= booking.witness.name %></h2>
+                <p class="card-text date"><%= booking.wedding_date.strftime('%B %d, %Y') %></p>
+                <p class="card-text date"><b><%= booking.booking_status.capitalize %></b></p>
+                <div class="d-flex justify-content-between gap-2">
+                  <% if booking.booking_status == "pending" %>
+                    <button class="btn btn-danger">Annuler la demande</button>
+                  <% end %>
+                </div>
+              </div>
             </div>
-
-      </div>
-        <% else %>
-          <p>Vous n'avez pas encore réservé de témoins.</p>
-        <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>Vous n'avez pas encore réservé de témoins.</p>
+      <% end %>
     </div>
 
-
     <% unless Witness.where(user: current_user).empty? %>
-        <div class= "card-reserved">
-          <div class="title-container">
-            <h4>Réservations de mes témoins</h4>
-          </div>
-
-            <% unless @witnesses_reserved_from_me.empty? %>
-
-          <div class="temoin-card d-flex flex-column align-items-center">
-              <% @witnesses_reserved_from_me.each do |booking| %>
-                <div>
-                  <%= cl_image_tag booking.witness.photo.key, class: "profile-picture" %>
-                    <h2 class="username"><%= booking.witness.name %></h2>
-                    <p class="date"> <%= booking.wedding_date.strftime('%B %d, %Y') %></p>
-                    <p class="date"> <b> <%= booking.booking_status.capitalize %> </b> </p>
-                    <div class="d-flex justify-content-between gap-2">
-                    <% if booking.booking_status == "attente" %>
-                      <button class="green-btn" data-action="click->dashboard#refuser"> <%= link_to "Refuser", witness_booking_path(booking.witness, booking), method: :patch, data: {booking_status: "déclinée"} %></button>
-                      <button class="green-btn" data-action="click->dashboard#accepter"><%= link_to "Accepter", witness_booking_path(booking.witness, booking), method: :patch, data: {booking_status: "acceptée"} %></button>
-                      <% end %>
-                    </div>
-                <% end %>
-                </div>
-          </div>
-
-            <% else %>
-              <p>Aucun de vos témoins n'a encore été réservé.</p>
-            <% end %>
-
+      <div class="card-reserved">
+        <div class="title-container">
+          <h4>Réservations de mes témoins</h4>
         </div>
+
+
+        <% unless @witnesses_reserved_from_me.empty? %>
+          <div class="d-flex flex-row">
+            <% @witnesses_reserved_from_me.each do |booking| %>
+              <div class="temoin-card card m-2" data-controller="dashboard">
+                <%= cl_image_tag booking.witness.photo.key, class: "card-img-top profile-picture" %>
+                <div class="card-body">
+                  <h2 class="card-title username"><%= booking.witness.name %></h2>
+                  <p class="card-text date"><%= booking.wedding_date.strftime('%B %d, %Y') %></p>
+                  <p class="card-text date"><b><%= booking.booking_status.capitalize %></b></p>
+                  <div class="d-flex justify-content-center gap-2">
+                    <% if booking.booking_status == "attente" %>
+                      <button class="green-btn" data-action="click->dashboard#refuser">Refuser</button>
+                      <button class="green-btn" data-action="click->dashboard#accepter">Accepter</button>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p>Aucun de vos témoins n'a encore été réservé.</p>
+        <% end %>
+      </div>
     <% end %>
-
-
   </div>
 </div>
 </div>
