@@ -73,5 +73,14 @@
   <%= yield %>
 </body>
 
-
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Sois mon Témoin.</p>
+    <ul class="footer-links">
+      <li> <%= link_to "HOME", root_path %></li>
+      <li> <%= link_to "MY DASHBOARD", dashboard_path %></li>
+      <li><%= link_to "DEVENIR TÉMOIN", new_witness_path %></li>
+    </ul>
+  </div>
+</footer>
 </html>
